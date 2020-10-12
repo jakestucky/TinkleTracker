@@ -64,3 +64,22 @@ CREATE TABLE "user" (
     )
     
     VALUES ('Jojo bow','https://s7d9.scene7.com/is/image/JCPenney/07e306b0-7404-11e8-bd88-6b37ea83f19a?resmode=sharp2&op_sharpen=1&wid=550&hei=550', '10','1');
+    
+    
+    ---Join queries---
+    
+    SELECT * FROM "user"
+    JOIN "child_data" on "user"."id" = "child_data"."user_ID"
+    JOIN "event_data" ON "child_data"."id" = "event_data"."child_ID"
+    JOIN "goal_data" ON "goal_data"."child_ID" = "event_data"."child_ID";
+    
+    
+        ---trying now() function for events---
+ INSERT INTO "event_data" (
+    "event_type",
+    "isPrizeWorthy",
+    "child_ID",
+    "date",
+    "time"
+    )
+    VALUES ('dry diaper','true','1', now(), now());
