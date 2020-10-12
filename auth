@@ -1,0 +1,65 @@
+Auth
+  Authentication
+    "who are you"?
+    AuthN
+
+    Logging in
+    Registering
+
+  Authorization
+    "Are you allowed to do this?"
+    "What do you have access to?"
+    AuthZ
+
+    Use cases:
+      Access levels eg. Guest/User/Admin/SuperAdmin
+      Only modify things I create
+
+
+Auth on the client is not secure
+
+
+Today: Authentication
+  Login / registration
+
+  Topics:
+    - cookies and session
+    - salting and hashing <-- l33t hackerz skilz
+    - Request headers
+
+Tomorrow: Authorization
+  "What can you do?"
+
+
+Thurs: Auth on the Front-end
+  Conditional Rendering
+
+  TL;DR
+  {user.level === 'ADMIN' ? <Link>Admin</Link> : don't}
+
+
+
+
+-----
+Front End Auth
+
+[x] Add a Pets component
+  [x] render a list of pets
+    [x] that belongs the logged in user
+[x] Add a route for that component and links
+[x] Sagas and Reducers, 
+  [x] to grab data from server and add to redux state
+[x] Only logged in users can access that component
+Conditional rendering for admin users.
+
+reduxState = {
+  errors: {},
+  loginMode: 'login',
+  user: {},
+
+  // NEW
+  pets: [
+    {firstName: 'fido', user_id: 2},
+    {firstName: 'snowball', user_id: 2},
+  ],
+}
