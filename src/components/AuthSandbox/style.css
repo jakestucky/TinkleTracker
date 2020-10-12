@@ -1,0 +1,19 @@
+.authSandbox button {
+  padding: 5px 10px;
+  margin-right: 20px;
+}
+
+.authSandbox {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.authSandbox.light {
+  background: peachpuff;
+}
+
+.authSandbox.dark {
+  background: black;
+  color: white;
+}
