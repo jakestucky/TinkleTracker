@@ -3,24 +3,18 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 
 class UserPage extends Component {
-
   // this component doesn't do much to start, just renders some user info to the DOM
   render() {
     return (
       <div>
-        <h1 id="welcome">Welcome, {this.props.user.username}!</h1>
+        <h1 id='welcome'>Welcome, {this.props.user.username}!</h1>
         <p>Your ID is: {this.props.user.id}</p>
-        <LogOutButton className="log-in" />
       </div>
     );
   }
 }
 
-
-// Instead of taking everything from state, we just want the user info.
-// if you wanted you could write this code like this:
-// const mapStateToProps = ({user}) => ({ user });
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.user,
 });
 
