@@ -12,13 +12,13 @@ CREATE TABLE "user" (
     "name" VARCHAR (80) NOT NULL,
     "image" VARCHAR (1000),
     "age" INT NOT NULL,
-    "user_ID" INT REFERENCES "user"
+    "user_ID" INT
     );
     
      CREATE TABLE "event_data" (
     "id" SERIAL PRIMARY KEY,
     "event_type" VARCHAR (80) NOT NULL,
-    "child_ID" INT REFERENCES "child_data",
+    "child_ID" INT,
     "date" DATE NOT NULL,
     "time" TIME(0) NOT NULL
     );
@@ -29,7 +29,7 @@ CREATE TABLE "user" (
     "prize_image" VARCHAR (1000) ,
     "max_goal" INT NOT NULL,
     "current_goal" INT DEFAULT '0',
-    "child_ID" INT REFERENCES "child_data",
+    "child_ID" INT,
     "timestamp" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
     
