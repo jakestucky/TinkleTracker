@@ -1,4 +1,3 @@
-
 const express = require('express');
 require('dotenv').config();
 
@@ -10,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const petRouter = require('./routes/pet.router');
+const uploadRouter = require('./routes/upload.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,7 +24,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/pet', petRouter);
+app.use('/uploadProfilePicture', uploadRouter);
 
 // Serve static files
 app.use(express.static('build'));
@@ -37,3 +36,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
 });
+
+/// everything her below is for the pic upload TODO refactor and make this look good

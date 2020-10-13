@@ -17,8 +17,9 @@ class ChildInfo extends Component {
   render() {
     return (
       <div>
+        {/* NEED TO CHANGE THIS */}
         <form onSubmit={this.login}>
-          <h1>Your Child's Info</h1>
+          <h2>Your Child's Info</h2>
           <div>
             <label htmlFor='ChildName'>
               Your Child's Name
@@ -41,6 +42,16 @@ class ChildInfo extends Component {
               />
             </label>
           </div>
+        </form>
+
+        <form
+          action='/uploadProfilePicture'
+          enctype='multipart/form-data'
+          method='POST'
+        >
+          <span>Upload Profile Picture:</span>
+          <input type='file' name='mypic' required /> <br />
+          <input type='submit' value='submit' />
         </form>
       </div>
     );
