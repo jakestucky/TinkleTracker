@@ -1,0 +1,12 @@
+.head {
+  display: inline-block;
+  align-content: center;
+}
+img {
+  float: left;
+}
+h1 {
+  float: right;
+
+  font-size: 58px;
+}
