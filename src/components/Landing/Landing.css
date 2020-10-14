@@ -30,14 +30,4 @@
   grid-row: auto auto;
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  .box {
-    background-color: #333;
-
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    font-family: sans-serif;
-  }
 }

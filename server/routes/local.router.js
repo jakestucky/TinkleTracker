@@ -12,11 +12,11 @@ const upload = require('../middleware/upload');
 // (could be a DB, IRL)
 const imagesDB = [];
 
-router.post('/upload', upload.any(), (req, res) => {
+router.post('/', upload.any(), (req, res) => {
   console.log('req.files', req.files);
 
   // We can receive other data from the client, too
-  console.log('req.body.food', req.body.food);
+  console.log('req.body.food', req.body);
 
   // Save image paths to the "DB"
   req.files.forEach((file) => {
@@ -24,7 +24,7 @@ router.post('/upload', upload.any(), (req, res) => {
     /*
     IRL, this would be something like
     
-      INSERT INTO "images" ("filename")
+      INSERT INTO "images" ("file.path") req.body.childName , req.body.Age 
       VALUES (file.filename)
     */
     imagesDB.push(file.filename);

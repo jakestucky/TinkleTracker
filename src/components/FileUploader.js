@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone-uploader';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
-function FileUploader() {
+function FileUploader(props) {
   // Can also use regular this.state, too
+  console.log('props', props.childProps);
+
   const [images, setImages] = useState([]);
 
   const getUploadParams = () => ({
@@ -11,7 +14,8 @@ function FileUploader() {
     // Pass other data to API
     // (available in req.body, on server)
     fields: {
-      food: 'tacos',
+      childName: props.childProps.ChildName,
+      Age: props.childProps.Age,
     },
   });
 
@@ -21,15 +25,14 @@ function FileUploader() {
 
     // Grab image URLs from server
     axios
-      .get('/images')
+      .get('/upload')
       .then((res) => {
         console.log('data', res.data);
         setImages(res.data);
       })
       .catch((err) => console.error(err));
   };
-
-  console.log('images', images);
+  // console.log('childname', this.props.childName);
 
   return (
     <>

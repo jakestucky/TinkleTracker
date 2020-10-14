@@ -9,13 +9,12 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const uploadRouter = require('./routes/upload.router');
 const localUploadRouter = require('./routes/local.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static('public/upload'));
 // Passport Session Configuration //
 app.use(sessionMiddleware);
 
@@ -25,7 +24,6 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/uploadProfilePicture', uploadRouter);
 app.use('/upload', localUploadRouter);
 
 // Serve static files

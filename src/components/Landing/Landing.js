@@ -12,6 +12,7 @@ class UserPage extends Component {
 
           <p>Adeline, 3 years old</p>
         </div>
+
         <div className='buttonGrid'>
           <button className='event-button'>Create New Potty Event</button>
           <button className='event-button'>View/Edit Recent Event</button>

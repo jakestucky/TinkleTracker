@@ -6,7 +6,6 @@ class ChildInfo extends Component {
   state = {
     ChildName: '',
     Age: '',
-    ImageName: '',
   };
   handleInputChangeFor = (propertyName) => (event) => {
     console.log('changing', propertyName, event.target.value);
@@ -30,13 +29,13 @@ class ChildInfo extends Component {
 
   render() {
     console.log('current state is', this.state);
-
+    console.log('current user props', this.props.user);
     return (
       <div>
         {/* NEED TO CHANGE THIS */}
 
         <form
-          onSubmit={this.sendChild}
+          //   onSubmit={this.sendChild}
           action='/uploadProfilePicture'
           enctype='multipart/form-data'
           method='POST'
@@ -73,7 +72,7 @@ class ChildInfo extends Component {
               />
             </label>
           </div>
-          <FileUploader />
+          <FileUploader childProps={this.state} />
         </form>
       </div>
     );
