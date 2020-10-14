@@ -52,19 +52,21 @@ router.get('/', function (req, res) {
   res.render('Signup');
 });
 
-router.post('/uploadProfilePicture', function (req, res, next) {
+router.post('/', function (req, res, next) {
   // Error MiddleWare for multer file upload, so if any
-  // error occurs, the image would not be uploaded!
+  // error occurs, the image would not be uploaded
+
   upload(req, res, function (err) {
     if (err) {
       // ERROR occured (here it can be occured due
       // to uploading image of size greater than
       // 1MB or uploading different file type)
       res.send(err);
-    } else {
-      // SUCCESS, image successfully uploaded
-      res.send('Success, Image uploaded!');
-    }
+    } // else {
+    //   // SUCCESS, image successfully uploaded
+    //   res.send('Success, Image uploaded!');
+    // }
   });
 });
+
 module.exports = router;
