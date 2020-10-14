@@ -22,17 +22,7 @@ function FileUploader(props) {
   const handleSubmit = (files, allFiles) => {
     // Remove files from form
     allFiles.forEach((f) => f.remove());
-
-    // Grab image URLs from server
-    axios
-      .get('/upload')
-      .then((res) => {
-        console.log('data', res.data);
-        setImages(res.data);
-      })
-      .catch((err) => console.error(err));
   };
-  // console.log('childname', this.props.childName);
 
   return (
     <>

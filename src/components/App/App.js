@@ -5,15 +5,10 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import { connect } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-import UserPage from '../Landing/Landing';
 import InfoPage from '../InfoPage/InfoPage';
 import Header from '../Header/Header';
 import Landing from '../Landing/Landing';

@@ -1,7 +1,6 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import pic from '../../uploads/mypic-1602684826950.jpg';
 import './Landing.css';
 class UserPage extends Component {
   //
@@ -12,12 +11,16 @@ class UserPage extends Component {
   };
 
   render() {
+    console.log('props', this.props.child.image);
+
     return (
       <div>
         <div className='childInfo'>
-          <img height='150PX' src={pic} />
+          <img height='150PX' src={this.props.child.image} />
 
-          <p>Adeline, 3 years old</p>
+          <p>
+            {this.props.child.name}, {this.props.child.age} years old
+          </p>
         </div>
 
         <div className='buttonGrid'>
@@ -33,6 +36,7 @@ class UserPage extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
+  child: state.childReducer,
 });
 
 // this allows us to use <App /> in index.js

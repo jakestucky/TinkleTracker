@@ -30,7 +30,7 @@ router.post('/', upload.any(), (req, res) => {
     pool
       .query(queryText, [
         req.body.childName,
-        file.path,
+        file.filename,
         req.body.Age,
         req.body.UserId,
       ])
