@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
-
+import pic from '../../uploads/mypic-1602684826950.jpg';
+import './Landing.css';
 class UserPage extends Component {
   // this component doesn't do much to start, just renders some user info to the DOM
   render() {
     return (
       <div>
-        <h1 id='welcome'>Welcome, {this.props.user.username}!</h1>
-        <p>Your ID is: {this.props.user.id}</p>
+        <div className='childInfo'>
+          <img height='150PX' src={pic} />
+
+          <p>Adeline, 3 years old</p>
+        </div>
+        <div className='buttonGrid'>
+          <button className='event-button'>Create New Potty Event</button>
+          <button className='event-button'>View/Edit Recent Event</button>
+          <button className='event-button'>View/Edit Current Goals</button>
+          <button className='event-button'> View/Edit Child Profile</button>
+        </div>
       </div>
     );
   }
