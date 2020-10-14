@@ -7,6 +7,7 @@
 const Router = require('express').Router;
 const router = Router();
 const upload = require('../middleware/upload');
+const pool = require('../modules/pool');
 
 // Keep images in an array
 // (could be a DB, IRL)
@@ -16,17 +17,31 @@ router.post('/', upload.any(), (req, res) => {
   console.log('req.files', req.files);
 
   // We can receive other data from the client, too
-  console.log('req.body.food', req.body);
+  console.log('req.body', req.body);
 
   // Save image paths to the "DB"
   req.files.forEach((file) => {
-    //
-    /*
-    IRL, this would be something like
-    
-      INSERT INTO "images" ("file.path") req.body.childName , req.body.Age 
-      VALUES (file.filename)
-    */
+    console.log('req.files.path', req.files.path);
+
+    //query to db
+    const queryText = `INSERT INTO "child_data" 
+    ("name", "image", "age","user_ID")
+    VALUES ($1, $2, $3, $4);`;
+    pool
+      .query(queryText, [
+        req.body.childName,
+        file.path,
+        req.body.Age,
+        req.body.UserId,
+      ])
+      //   .then((result) => {
+      //     res.send(result.rows);
+      //   })
+      .catch((err) => {
+        console.error('Error completing child info post query', err);
+        res.sendStatus(500);
+      });
+
     imagesDB.push(file.filename);
   });
 

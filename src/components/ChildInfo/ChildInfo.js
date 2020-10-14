@@ -72,7 +72,10 @@ class ChildInfo extends Component {
               />
             </label>
           </div>
-          <FileUploader childProps={this.state} />
+          <FileUploader
+            childProps={this.state}
+            userProps={this.props.user.id}
+          />
         </form>
       </div>
     );

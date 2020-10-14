@@ -16,6 +16,7 @@ function FileUploader(props) {
     fields: {
       childName: props.childProps.ChildName,
       Age: props.childProps.Age,
+      UserId: props.userProps,
     },
   });
 
