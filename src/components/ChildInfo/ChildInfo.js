@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FileUploader from '../FileUploader';
 
 class ChildInfo extends Component {
   state = {
@@ -41,13 +42,12 @@ class ChildInfo extends Component {
           method='POST'
         >
           <h2>Your Child's Info</h2>
-          <span>Upload Profile Picture:</span>
-          <input
+          {/* <input
             type='file'
             name='mypic'
             required
             onChange={this.handleInputChangeForImg('ImageName')}
-          />{' '}
+          />{' '} */}
           <br />
           <div>
             <label htmlFor='ChildName'>
@@ -73,7 +73,7 @@ class ChildInfo extends Component {
               />
             </label>
           </div>
-          <input type='submit' value='submit' />
+          <FileUploader />
         </form>
       </div>
     );
