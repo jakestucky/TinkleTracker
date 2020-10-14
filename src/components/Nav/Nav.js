@@ -15,13 +15,13 @@ const Nav = (props) => (
     <Link to='/home'>
       <h2 className='nav-title'>Goal</h2>
     </Link>
-    <Link to='/home'>
+    <Link to='/newevent'>
       <h2 className='nav-title'>Potty Event</h2>
     </Link>
     <Link to='/home'>
       <h2 className='nav-title'>Profile</h2>
     </Link>
-    <Link to='/home'>
+    <Link to='/childview'>
       <h2 className='nav-title'>Child View</h2>
     </Link>
     <LogOutButton className='log-out' />

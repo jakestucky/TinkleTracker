@@ -1,9 +1,16 @@
+import Axios from 'axios';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import pic from '../../uploads/mypic-1602684826950.jpg';
 import './Landing.css';
 class UserPage extends Component {
-  // this component doesn't do much to start, just renders some user info to the DOM
+  //
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_CHILD',
+    });
+  };
+
   render() {
     return (
       <div>

@@ -11,7 +11,7 @@ const pool = require('../modules/pool');
 
 // Keep images in an array
 // (could be a DB, IRL)
-const imagesDB = [];
+// const imagesDB = [];
 
 router.post('/', upload.any(), (req, res) => {
   console.log('req.files', req.files);
@@ -41,15 +41,9 @@ router.post('/', upload.any(), (req, res) => {
         console.error('Error completing child info post query', err);
         res.sendStatus(500);
       });
-
-    imagesDB.push(file.filename);
   });
 
   res.sendStatus(201);
-});
-
-router.get('/images', (req, res) => {
-  res.send(imagesDB);
 });
 
 module.exports = router;

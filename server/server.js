@@ -10,7 +10,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const localUploadRouter = require('./routes/local.router');
-
+const childRouter = require('./routes/child.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,7 +25,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/upload', localUploadRouter);
-
+app.use('/child', childRouter);
 // Serve static files
 app.use(express.static('build'));
 

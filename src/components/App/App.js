@@ -19,6 +19,9 @@ import Header from '../Header/Header';
 import Landing from '../Landing/Landing';
 import './App.css';
 import ChildInfo from '../ChildInfo/ChildInfo';
+import NewEvent from '../NewEvent/NewEvent';
+import ChildView from '../ChildView/ChildView';
+import RecentEvent from '../RecentEvent/RecentEvent';
 
 class App extends Component {
   componentDidMount() {
@@ -46,7 +49,9 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute exact path='/info' component={InfoPage} />
             <ProtectedRoute exact path='/childinfo' component={ChildInfo} />
-
+            <ProtectedRoute exact path='/newevent' component={NewEvent} />
+            <ProtectedRoute exact path='/childview' component={ChildView} />
+            <ProtectedRoute exact path='/recentevent' component={RecentEvent} />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

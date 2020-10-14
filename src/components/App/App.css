@@ -51,3 +51,6 @@ input {
   border-bottom: 1px solid #444;
   cursor: pointer;
 }
+.dzu-previewImage {
+  height: 300px;
+}

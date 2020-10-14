@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone-uploader';
 import axios from 'axios';
-import { connect } from 'react-redux';
 
 function FileUploader(props) {
   // Can also use regular this.state, too
@@ -40,10 +39,10 @@ function FileUploader(props) {
       <h2>Upload to Profile Picture!</h2>
       <Dropzone getUploadParams={getUploadParams} onSubmit={handleSubmit} />
 
-      <h2>Gallery</h2>
+      {/* <h2>Gallery</h2>
       {images.map((image) => (
         <img src={image} height='100px' />
-      ))}
+      ))} */}
     </>
   );
 }
