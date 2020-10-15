@@ -4,7 +4,7 @@ const upload = require('../middleware/upload');
 const pool = require('../modules/pool');
 
 router.post('/', (req, res) => {
-  // We can receive other data from the client, too
+  //post to send created evnt data to the database
   console.log('req.body for event POST', req.body);
   //query to db
   const queryText = `INSERT INTO "event_data" 
@@ -22,6 +22,23 @@ router.post('/', (req, res) => {
       res.sendStatus(500);
     });
   res.sendStatus(201);
+});
+
+router.get('/', (req, res) => {
+  console.log('making a event GET request');
+
+  let queryString = `SELECT * FROM "event_data";`;
+  pool
+    .query(queryString)
+    .then((result) => {
+      console.log('results from get', result.rows);
+
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log('We have an error in events GET', error);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;

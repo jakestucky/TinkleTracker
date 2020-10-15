@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class RecentEvent extends Component {
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_EVENT',
+    });
+  };
   render() {
-    return <div></div>;
+    return <div>Recent Event</div>;
   }
 }
 const mapStateToProps = (state) => ({

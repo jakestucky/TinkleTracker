@@ -27,7 +27,9 @@ class UserPage extends Component {
           <Link to='/newevent'>
             <button className='event-button'>Create New Potty Event</button>
           </Link>
-          <button className='event-button'>View/Edit Recent Event</button>
+          <Link to='/recentevent'>
+            <button className='event-button'>View/Edit Recent Event</button>
+          </Link>
           <button className='event-button'>View/Edit Current Goals</button>
           <button className='event-button'> View/Edit Child Profile</button>
         </div>
