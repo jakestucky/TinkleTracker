@@ -8,14 +8,15 @@ router.post('/', (req, res) => {
   console.log('req.body for event POST', req.body);
   //query to db
   const queryText = `INSERT INTO "event_data" 
-    ("event_type", "child_ID", "date","time")
-    VALUES ($1, $2, $3, $4);`;
+    ("event_type", "child_ID", "date","time","user_ID")
+    VALUES ($1, $2, $3, $4, $5);`;
   pool
     .query(queryText, [
       req.body.eventType,
       req.body.childId,
       req.body.date,
       req.body.time,
+      req.user.id,
     ])
     .catch((err) => {
       console.error('Error completing child info post query', err);
@@ -27,9 +28,11 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   console.log('making a event GET request');
 
-  let queryString = `SELECT * FROM "event_data";`;
+  let queryString = `SELECT * FROM "event_data"
+    WHERE "user_ID" = $1
+    LIMIT 10;`;
   pool
-    .query(queryString)
+    .query(queryString, [req.user.id])
     .then((result) => {
       console.log('results from get', result.rows);
 

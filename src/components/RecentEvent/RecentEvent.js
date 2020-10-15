@@ -8,11 +8,25 @@ class RecentEvent extends Component {
     });
   };
   render() {
-    return <div>Recent Event</div>;
+    console.log('current props', this.props.event);
+
+    return (
+      <div>
+        Recent Event
+        <ul>
+          {this.props.event.map((event) => (
+            <li>
+              <h2>{event.event_type}</h2>
+              <p>{event.date.split('T', 1)}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
 }
 const mapStateToProps = (state) => ({
-  errors: state.errors,
+  event: state.eventReducer,
 });
 
 export default connect(mapStateToProps)(RecentEvent);
