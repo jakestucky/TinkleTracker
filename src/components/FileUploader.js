@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone-uploader';
-import axios from 'axios';
-
+import { withRouter } from 'react-router-dom';
 function FileUploader(props) {
   // Can also use regular this.state, too
   console.log('props', props.childProps);

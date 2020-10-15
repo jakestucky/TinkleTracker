@@ -23,10 +23,6 @@ class ChildInfo extends Component {
     });
   };
 
-  sendChild = () => {
-    console.log('we sending this kid', this.state);
-  };
-
   render() {
     console.log('current state is', this.state);
     console.log('current user props', this.props.user);
@@ -34,19 +30,8 @@ class ChildInfo extends Component {
       <div>
         {/* NEED TO CHANGE THIS */}
 
-        <form
-          //   onSubmit={this.sendChild}
-          action='/uploadProfilePicture'
-          enctype='multipart/form-data'
-          method='POST'
-        >
+        <form>
           <h2>Your Child's Info</h2>
-          {/* <input
-            type='file'
-            name='mypic'
-            required
-            onChange={this.handleInputChangeForImg('ImageName')}
-          />{' '} */}
           <br />
           <div>
             <label htmlFor='ChildName'>
