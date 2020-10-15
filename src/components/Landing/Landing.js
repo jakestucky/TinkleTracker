@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './Landing.css';
 class UserPage extends Component {
   //
@@ -23,7 +24,9 @@ class UserPage extends Component {
         </div>
 
         <div className='buttonGrid'>
-          <button className='event-button'>Create New Potty Event</button>
+          <Link to='/newevent'>
+            <button className='event-button'>Create New Potty Event</button>
+          </Link>
           <button className='event-button'>View/Edit Recent Event</button>
           <button className='event-button'>View/Edit Current Goals</button>
           <button className='event-button'> View/Edit Child Profile</button>

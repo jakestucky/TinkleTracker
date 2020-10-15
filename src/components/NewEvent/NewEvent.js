@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
-import { Picklist, PicklistOption, DatePicker } from 'react-rainbow-components';
+import { DatePicker } from 'react-rainbow-components';
 import './style.css';
 import { TimePicker } from 'react-rainbow-components';
 
@@ -14,10 +14,17 @@ class NewEvent extends Component {
 
     this.state = {
       currentTime: time,
-      date: today,
+      date: new Date(),
       eventType: '',
+      childId: '',
     };
   }
+  componentDidMount = () => {
+    this.setState({
+      ...this.state,
+      childId: this.props.child.id,
+    });
+  };
 
   handleInputChange = (propertyName, event) => {
     console.log('this is changing', propertyName, this.state.title);
@@ -28,13 +35,24 @@ class NewEvent extends Component {
   };
 
   submitEvent = () => {
-    this.props.dispatch({});
+    console.log('you clicked submit ');
+
+    this.props.dispatch({
+      type: 'CREATE_EVENT',
+      payload: {
+        date: this.state.date,
+        time: this.state.currentTime,
+        eventType: this.state.eventType,
+        childId: this.props.child.id,
+      },
+    });
+    this.props.history.push('/home');
   };
   render() {
     console.log('state is', this.state);
 
     return (
-      <div className>
+      <div>
         <div className='rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large'>
           <DatePicker
             value={this.state.date}
@@ -54,10 +72,11 @@ class NewEvent extends Component {
         </div>
         <div>
           <select
-            value={this.state.eventType}
+            label='Potty Event Type'
+            defaultValue={'DEFAULT'}
             onChange={(event) => this.handleInputChange('eventType', event)}
           >
-            <option disabled selected value=''>
+            <option value='DEFAULT' disabled>
               Select Event Type
             </option>
             <option>Wet/Soiled Diaper</option>
@@ -74,6 +93,7 @@ class NewEvent extends Component {
 }
 const mapStateToProps = (state) => ({
   errors: state.errors,
+  child: state.childReducer,
 });
 
 export default connect(mapStateToProps)(NewEvent);
