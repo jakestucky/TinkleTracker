@@ -21,6 +21,7 @@ function FileUploader(props) {
   const handleSubmit = (files, allFiles) => {
     // Remove files from form
     allFiles.forEach((f) => f.remove());
+    window.location.href = '/home';
   };
 
   return (
