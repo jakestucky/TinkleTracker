@@ -2,7 +2,7 @@
   display: inline-block;
   align-content: center;
 }
-img {
+.head.img {
   float: left;
 }
 h1 {

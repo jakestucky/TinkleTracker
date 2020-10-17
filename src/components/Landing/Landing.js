@@ -25,13 +25,17 @@ class UserPage extends Component {
 
         <div className='buttonGrid'>
           <Link to='/newevent'>
-            <button className='event-button'>Create New Potty Event</button>
+            <button className='event-button'>New Potty Event</button>
           </Link>
           <Link to='/recentevent'>
             <button className='event-button'>View/Edit Recent Event</button>
           </Link>
-          <button className='event-button'>View/Edit Current Goals</button>
-          <button className='event-button'> View/Edit Child Profile</button>
+          <Link to='/goal'>
+            <button className='event-button'>View/Edit Current Goals</button>
+          </Link>
+          <Link to='/goal'>
+            <button className='event-button'> View/Edit Child Profile</button>
+          </Link>
         </div>
       </div>
     );

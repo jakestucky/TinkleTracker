@@ -10,8 +10,8 @@ body {
 
 form {
   background-color: #dbd5d5;
-  width: 40%;
-
+  width: 50%;
+  height: auto;
   margin: 20px auto;
   padding: 25px;
   border-radius: 2px;
@@ -53,4 +53,5 @@ input {
 }
 .dzu-previewImage {
   height: 300px;
+  display: inline-block;
 }

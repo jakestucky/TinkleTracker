@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PrizeUploader from '../PrizeUploader';
+import './Goal.css';
 class Goal extends Component {
   state = {
     prizeName: '',
     goalMaxValue: '',
   };
+  componentDidMount;
 
   handleInputChangeFor = (propertyName) => (event) => {
     console.log('changing', propertyName, event.target.value);
@@ -19,6 +21,7 @@ class Goal extends Component {
 
     return (
       <div>
+        {/* New Potty goal form with file upload */}
         <form>
           <label for='goalMaxValue'>Potty Goal #</label>
           <input
@@ -56,11 +59,11 @@ class Goal extends Component {
             value={this.state.imageUrl}
             onChange={this.handleInputChangeFor('imageUrl')}
           ></input>
+          {/* Works the same as the other file uploader, just points to prize.local */}
           <PrizeUploader
             childProps={this.props.child}
             prizeProps={this.state}
           />
-          <p>Image Preview</p> <img src={this.state.imageUrl} height='200' />
         </form>
       </div>
     );

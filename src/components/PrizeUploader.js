@@ -5,8 +5,6 @@ function PrizeUploader(props) {
   // Can also use regular this.state, too
   console.log('props', props.childProps);
 
-  const [images, setImages] = useState([]);
-
   const getUploadParams = () => ({
     url: '/prize',
     // Pass other data to API
