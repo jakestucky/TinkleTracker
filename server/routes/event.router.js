@@ -28,9 +28,11 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
   console.log('making a event GET request');
 
-  let queryString = `SELECT * FROM "event_data"
-    WHERE "user_ID" = $1
-    LIMIT 10;`;
+  let queryString = ` SELECT * FROM "event_data"
+   JOIN "child_data" on "event_data"."user_ID" = "child_data"."user_ID"
+    WHERE "event_data"."user_ID"  = $1
+    LIMIT 10;
+   `;
   pool
     .query(queryString, [req.user.id])
     .then((result) => {

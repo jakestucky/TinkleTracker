@@ -12,7 +12,7 @@ const Nav = (props) => (
     <Link to='/ChildInfo'>
       <h2 className='nav-title'>Child Info</h2>
     </Link>
-    <Link to='/home'>
+    <Link to='/goal'>
       <h2 className='nav-title'>Goal</h2>
     </Link>
     <Link to='/newevent'>
@@ -24,6 +24,7 @@ const Nav = (props) => (
     <Link to='/childview'>
       <h2 className='nav-title'>Child View</h2>
     </Link>
+
     <LogOutButton className='log-out' />
   </div>
 );

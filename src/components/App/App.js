@@ -17,6 +17,7 @@ import ChildInfo from '../ChildInfo/ChildInfo';
 import NewEvent from '../NewEvent/NewEvent';
 import ChildView from '../ChildView/ChildView';
 import RecentEvent from '../RecentEvent/RecentEvent';
+import Goal from '../Goal/Goal';
 
 class App extends Component {
   componentDidMount() {
@@ -47,6 +48,7 @@ class App extends Component {
             <ProtectedRoute exact path='/newevent' component={NewEvent} />
             <ProtectedRoute exact path='/childview' component={ChildView} />
             <ProtectedRoute exact path='/recentevent' component={RecentEvent} />
+            <ProtectedRoute exact path='/goal' component={Goal} />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

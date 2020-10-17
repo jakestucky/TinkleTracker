@@ -13,14 +13,28 @@ class RecentEvent extends Component {
     return (
       <div>
         Recent Event
-        <ul>
+        <table>
+          <tr>
+            <th>Event Type</th>
+            <th>Event Date</th>
+            <th>Event Time</th>
+            <th>Child Name</th>
+          </tr>
           {this.props.event.map((event) => (
-            <li>
-              <h2>{event.event_type}</h2>
-              <p>{event.date.split('T', 1)}</p>
-            </li>
+            <tr>
+              <td>{event.event_type}</td>
+              <td>{event.date.split('T', 1)}</td>
+              <td>{event.time}</td>
+              <td>{event.name}</td>
+              <td>
+                <button>Edit</button>
+              </td>
+              <td>
+                <button>Delete</button>
+              </td>
+            </tr>
           ))}
-        </ul>
+        </table>
       </div>
     );
   }

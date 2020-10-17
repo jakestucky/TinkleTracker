@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const localUploadRouter = require('./routes/local.router');
 const childRouter = require('./routes/child.router');
 const eventRouter = require('./routes/event.router');
+const localPrizeRouter = require('./routes/prize.router');
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/upload', localUploadRouter);
+app.use('/prize', localPrizeRouter);
 app.use('/child', childRouter);
 app.use('/event', eventRouter);
 // Serve static files
