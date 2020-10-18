@@ -11,7 +11,7 @@
   padding: 20px;
   border-radius: 10px;
 
-  font-size: 24px;
+  font-size: 36px;
 }
 .childInfo {
   font-size: 24px;
@@ -28,6 +28,6 @@
   display: grid;
   grid-template-columns: 200px 200px;
   grid-row: auto auto;
-  grid-column-gap: 30px;
-  grid-row-gap: 30px;
+  grid-column-gap: 75px;
+  grid-row-gap: 50px;
 }

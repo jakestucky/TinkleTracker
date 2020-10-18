@@ -85,7 +85,9 @@ class NewEvent extends Component {
             <option>#2 in Potty</option>
           </select>
           <br></br>
-          <button onClick={this.submitEvent}>Submit Event</button>
+          <button className='new-event-button' onClick={this.submitEvent}>
+            Submit Event
+          </button>
         </div>
       </div>
     );

@@ -7,7 +7,11 @@ class Goal extends Component {
     prizeName: '',
     goalMaxValue: '',
   };
-  componentDidMount;
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_GOAL',
+    });
+  };
 
   handleInputChangeFor = (propertyName) => (event) => {
     console.log('changing', propertyName, event.target.value);
@@ -44,21 +48,7 @@ class Goal extends Component {
             onChange={this.handleInputChangeFor('prizeName')}
           ></input>
           <br></br>
-          <label for='imageUrl'>Prize Image URL</label>
-          <input
-            id='imageUrl'
-            type='url'
-            placeholder='Enter Prize Here'
-            value={this.state.imageUrl}
-            onChange={this.handleInputChangeFor('imageUrl')}
-          ></input>
-          <input
-            id='imageUrl'
-            type='url'
-            placeholder=''
-            value={this.state.imageUrl}
-            onChange={this.handleInputChangeFor('imageUrl')}
-          ></input>
+
           {/* Works the same as the other file uploader, just points to prize.local */}
           <PrizeUploader
             childProps={this.props.child}

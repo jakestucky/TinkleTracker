@@ -7,13 +7,24 @@ import { connect } from 'react-redux';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-class Header extends Component {
+class HeaderLogin extends Component {
   render() {
     return (
       <header>
         <div className='head'>
           <img height='150px' src={star} />
           <h1>TinkleTracker</h1>
+        </div>
+
+        <div className='childInfo'>
+          <img
+            className='profile-img'
+            height='150PX'
+            src={this.props.child.image}
+          />
+          <p>
+            {this.props.child.name}, Age {this.props.child.age}
+          </p>
         </div>
       </header>
     );
@@ -25,4 +36,4 @@ const mapStateToProps = (state) => ({
   login: state.loginMode,
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(HeaderLogin);

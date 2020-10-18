@@ -27,10 +27,12 @@ class App extends Component {
   }
 
   render() {
+    console.log('props are', this.props.child.name);
+
     return (
       <Router>
         <div>
-          <Header />
+          <Header user={this.props.user} child={this.props.child} />
           <Nav />
 
           <Switch>
@@ -49,6 +51,7 @@ class App extends Component {
             <ProtectedRoute exact path='/childview' component={ChildView} />
             <ProtectedRoute exact path='/recentevent' component={RecentEvent} />
             <ProtectedRoute exact path='/goal' component={Goal} />
+
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
@@ -58,5 +61,10 @@ class App extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  user: state.user,
+  child: state.childReducer,
+  login: state.loginMode,
+});
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);

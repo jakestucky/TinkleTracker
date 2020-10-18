@@ -15,14 +15,6 @@ class UserPage extends Component {
 
     return (
       <div>
-        <div className='childInfo'>
-          <img height='150PX' src={this.props.child.image} />
-
-          <p>
-            {this.props.child.name}, {this.props.child.age} years old
-          </p>
-        </div>
-
         <div className='buttonGrid'>
           <Link to='/newevent'>
             <button className='event-button'>New Potty Event</button>

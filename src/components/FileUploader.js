@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Dropzone from 'react-dropzone-uploader';
 
 function FileUploader(props) {
   // Can also use regular this.state, too
   console.log('props', props.childProps);
-
-  const [images, setImages] = useState([]);
 
   const getUploadParams = () => ({
     url: '/upload',

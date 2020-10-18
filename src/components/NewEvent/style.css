@@ -25,7 +25,7 @@ select {
   margin-left: 35%;
   width: 25%;
 }
-button {
+.new-event-button {
   border-radius: 20px;
   margin-left: 45%;
   margin-top: 20px;
