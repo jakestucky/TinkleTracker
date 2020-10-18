@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './ChildView.css';
+import num1 from './pee.jpg';
+import num2 from './Poop_Emoji.png';
+import wet from './sad.png';
+import dry from './smiley.png';
 
 class ChildView extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <div className='buttonGrid'>
+          <button className='event-button'>
+            <img height='200' src={num1} />
+          </button>
+          <button className='event-button'>
+            <img height='200' src={num2} />
+          </button>
+          <button className='event-button'>
+            <img height='200' src={wet} />
+          </button>
+          <button className='event-button'>
+            <img height='200' src={dry} />
+          </button>
+        </div>
+      </div>
+    );
   }
 }
 const mapStateToProps = (state) => ({
