@@ -7,6 +7,15 @@ class RecentEvent extends Component {
       type: 'FETCH_EVENT',
     });
   };
+
+  deleteEvent = (eventsid) => {
+    console.log('event id: ', eventsid);
+
+    this.props.dispatch({
+      type: 'DELETE_EVENT',
+      payload: '',
+    });
+  };
   render() {
     console.log('current props', this.props.event);
 
@@ -31,7 +40,9 @@ class RecentEvent extends Component {
                   <button>Edit</button>
                 </td>
                 <td>
-                  <button>Delete</button>
+                  <button onClick={() => this.deleteEvent(event.id)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
