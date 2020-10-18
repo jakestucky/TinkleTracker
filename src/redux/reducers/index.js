@@ -4,7 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import childReducer from './childReducer';
 import eventReducer from './eventReducer';
-
+import goalReducer from './goalReducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   childReducer, //this is the child data for images
   eventReducer, //Reducer to store the recent event data from DB
+  goalReducer, //reducer to grab and store newest goal's data
 });
 
 export default rootReducer;

@@ -10,6 +10,8 @@ class Goal extends Component {
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_GOAL',
+      //get request with the child ID as a param
+      url: `/goal/${this.props.child.id}`,
     });
   };
 
