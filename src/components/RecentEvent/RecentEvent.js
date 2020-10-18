@@ -18,7 +18,7 @@ class RecentEvent extends Component {
   };
 
   editEvent = (id) => {
-    console.log('event id: ', id);
+    console.log('edit id: ', id);
 
     this.props.dispatch({
       type: 'EDIT_EVENT',

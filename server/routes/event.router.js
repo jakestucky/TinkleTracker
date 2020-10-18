@@ -47,6 +47,27 @@ router.get('/', (req, res) => {
       res.sendStatus(500);
     });
 });
+//Get request by specific ID to be edited later
+router.get('/:id', (req, res) => {
+  console.log('making a event GET request');
+
+  let queryString = ` SELECT * FROM "event_data"
+    WHERE "id"  = $1;
+   `;
+  pool
+    .query(queryString, [req.params.id])
+    .then((result) => {
+      console.log('results from get', result.rows[0]);
+
+      res.send(result.rows[0]);
+    })
+    .catch((error) => {
+      console.log('We have an error in events GET', error);
+      res.sendStatus(500);
+    });
+});
+
+//delete by ID from DB request
 router.delete('/:id', (req, res) => {
   console.log('making a event DELETE request');
   console.log('params are', req.params);

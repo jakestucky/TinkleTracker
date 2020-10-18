@@ -34,10 +34,26 @@ function* deleteEvent(action) {
     type: 'FETCH_EVENT',
   });
 }
+
+//get request for edit of a specific event
+function* editEvent(action) {
+  console.log('get (edit) request at', action.url);
+
+  let response = yield axios({
+    method: 'GET',
+    url: action.url,
+  });
+  yield put({
+    type: 'EDIT_DATA',
+    payload: response.data,
+  });
+}
 function* eventSaga() {
   yield takeLatest('CREATE_EVENT', createEvent);
   yield takeLatest('FETCH_EVENT', fetchEvent);
   yield takeLatest('DELETE_EVENT', deleteEvent);
+  yield takeLatest('EDIT_EVENT', editEvent);
+  // yield takeLatest('PUT_EVENT', putEvent);
 }
 
 export default eventSaga;

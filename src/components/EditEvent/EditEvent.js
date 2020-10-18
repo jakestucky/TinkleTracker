@@ -6,25 +6,15 @@ import { TimePicker } from 'react-rainbow-components';
 
 class EditEvent extends Component {
   //set local date and time as default values
-  constructor() {
-    super();
-    var today = new Date(),
-      time =
-        today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 
-    this.state = {
-      currentTime: time,
-      date: new Date(),
-      eventType: 'Wet/Soiled Diaper',
-      childId: '',
-    };
-  }
-  componentDidMount = () => {
-    this.setState({
-      ...this.state,
-      childId: this.props.child.id,
-    });
+  state = {
+    currentTime: this.props.edit.time,
+    date: this.props.edit.date,
+    eventType: this.props.edit.event_type,
+    childId: this.props.edit.child_ID,
   };
+
+  componentDidMount = () => {};
 
   handleInputChange = (propertyName, event) => {
     console.log('this is changing', propertyName, this.state.title);
@@ -34,29 +24,30 @@ class EditEvent extends Component {
     });
   };
 
-  submitEvent = () => {
+  submitEdit = () => {
     console.log('you clicked submit ');
 
     this.props.dispatch({
-      type: 'CREATE_EVENT',
+      type: 'PUT_EVENT',
+      url: `/event/${this.props.event.id}`,
       payload: {
         date: this.state.date,
         time: this.state.currentTime,
         eventType: this.state.eventType,
-        childId: this.props.child.id,
+        childId: this.state.childId,
       },
     });
     this.props.history.push('/home');
   };
   render() {
-    console.log('state is', this.state);
+    console.log('props test', this.props.edit.date);
 
     return (
       <div>
         <form>
           <div className='rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large'>
             <DatePicker
-              value={this.state.date}
+              value={this.props.edit.date}
               label='Potty Event Date'
               onChange={(value) => this.setState({ date: value })}
               //cannot pick a date in the future
@@ -66,7 +57,7 @@ class EditEvent extends Component {
           <div className='rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large'>
             <TimePicker
               id='time-picker-1'
-              value={this.state.currentTime}
+              value={this.props.edit.time}
               label='Potty Event Time'
               onChange={(value) => this.setState({ time: value })}
             />
@@ -75,7 +66,7 @@ class EditEvent extends Component {
             <select
               id='Event-type'
               label='Potty Event Type'
-              defaultValue={'DEFAULT'}
+              value={this.props.edit.event_type}
               onChange={(event) => this.handleInputChange('eventType', event)}
             >
               <option>Wet/Soiled Diaper</option>
@@ -84,8 +75,8 @@ class EditEvent extends Component {
               <option>#2 in Potty</option>
             </select>
             <br></br>
-            <button className='new-event-button' onClick={this.submitEvent}>
-              Submit Event
+            <button className='new-event-button' onClick={this.submitEdit}>
+              Submit Edit
             </button>
           </div>
         </form>
@@ -94,8 +85,7 @@ class EditEvent extends Component {
   }
 }
 const mapStateToProps = (state) => ({
-  errors: state.errors,
-  child: state.childReducer,
+  edit: state.editReducer,
 });
 
 export default connect(mapStateToProps)(EditEvent);
