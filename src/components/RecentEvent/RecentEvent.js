@@ -8,13 +8,23 @@ class RecentEvent extends Component {
     });
   };
 
-  deleteEvent = (eventsid) => {
-    console.log('event id: ', eventsid);
+  deleteEvent = (id) => {
+    console.log('event id: ', id);
 
     this.props.dispatch({
       type: 'DELETE_EVENT',
-      payload: '',
+      url: `/event/${id}`,
     });
+  };
+
+  editEvent = (id) => {
+    console.log('event id: ', id);
+
+    this.props.dispatch({
+      type: 'EDIT_EVENT',
+      url: `/event/${id}`,
+    });
+    this.props.history.push('/editevent');
   };
   render() {
     console.log('current props', this.props.event);
@@ -37,7 +47,7 @@ class RecentEvent extends Component {
                 <td>{event.time}</td>
                 <td>{event.name}</td>
                 <td>
-                  <button>Edit</button>
+                  <button onClick={() => this.editEvent(event.id)}>Edit</button>
                 </td>
                 <td>
                   <button onClick={() => this.deleteEvent(event.id)}>

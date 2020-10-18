@@ -32,7 +32,6 @@ class Goal extends Component {
 
     return (
       <div>
-        {this.state.hasGoal}
         <div>
           <h2>Current Goal:</h2>
           {this.props.goal.map((goal) => (

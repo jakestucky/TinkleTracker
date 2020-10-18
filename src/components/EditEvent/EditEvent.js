@@ -4,7 +4,7 @@ import { DatePicker } from 'react-rainbow-components';
 import './style.css';
 import { TimePicker } from 'react-rainbow-components';
 
-class NewEvent extends Component {
+class EditEvent extends Component {
   //set local date and time as default values
   constructor() {
     super();
@@ -98,4 +98,4 @@ const mapStateToProps = (state) => ({
   child: state.childReducer,
 });
 
-export default connect(mapStateToProps)(NewEvent);
+export default connect(mapStateToProps)(EditEvent);

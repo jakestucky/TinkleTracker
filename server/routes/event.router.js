@@ -24,13 +24,15 @@ router.post('/', (req, res) => {
     });
   res.sendStatus(201);
 });
-
+//Get request to DB to grab all events that match userID
 router.get('/', (req, res) => {
   console.log('making a event GET request');
 
   let queryString = ` SELECT "name","image","child_data"."user_ID", "event_type", "date", "time", "event_data"."id" FROM "child_data"
    JOIN "event_data" on "event_data"."user_ID" = "child_data"."user_ID"
- WHERE "event_data"."user_ID"  = $1
+
+    WHERE "event_data"."user_ID"  = $1
+    ORDER BY "date","time" DESC
     LIMIT 10;
    `;
   pool
@@ -45,5 +47,22 @@ router.get('/', (req, res) => {
       res.sendStatus(500);
     });
 });
+router.delete('/:id', (req, res) => {
+  console.log('making a event DELETE request');
+  console.log('params are', req.params);
 
+  let queryString = `  DELETE FROM "event_data" WHERE "id" = $1;
+   `;
+  pool
+    .query(queryString, [req.params.id])
+    .then((result) => {
+      console.log('results from get', result.rows);
+
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log('We have an error in events GET', error);
+      res.sendStatus(500);
+    });
+});
 module.exports = router;

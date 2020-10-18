@@ -20,9 +20,24 @@ function* fetchEvent() {
     payload: response.data,
   });
 }
+
+//deletes an entry by ID on button push
+
+function* deleteEvent(action) {
+  console.log('delete request at', action.url);
+
+  let response = yield axios({
+    method: 'DELETE',
+    url: action.url,
+  });
+  yield put({
+    type: 'FETCH_EVENT',
+  });
+}
 function* eventSaga() {
   yield takeLatest('CREATE_EVENT', createEvent);
   yield takeLatest('FETCH_EVENT', fetchEvent);
+  yield takeLatest('DELETE_EVENT', deleteEvent);
 }
 
 export default eventSaga;
