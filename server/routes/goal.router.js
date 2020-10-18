@@ -5,12 +5,12 @@ const pool = require('../modules/pool');
 router.get('/:id', (req, res) => {
   console.log('making a goal GET request', req.params.id);
 
-  let queryString = `SELECT * FROM "goal_data" WHERE "child_ID" = $1 ORDER BY "timestamp" DESC;
+  let queryString = `SELECT * FROM "goal_data" WHERE "child_ID" = $1 ORDER BY "timestamp" DESC FETCH FIRST ROW ONLY;
    `;
   pool
     .query(queryString, [req.params.id])
     .then((result) => {
-      console.log('results from get', result.rows[0]);
+      console.log('results from get', result.rows);
 
       res.send(result.rows);
     })

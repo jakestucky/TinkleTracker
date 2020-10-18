@@ -6,8 +6,13 @@ class Goal extends Component {
   state = {
     prizeName: '',
     goalMaxValue: '',
+    hasGoal: '',
   };
   componentDidMount = () => {
+    this.setState({
+      ...this.state,
+      hasGoal: this.props.goal,
+    });
     this.props.dispatch({
       type: 'FETCH_GOAL',
       //get request with the child ID as a param
@@ -27,6 +32,16 @@ class Goal extends Component {
 
     return (
       <div>
+        {this.state.hasGoal}
+        <div>
+          <h2>Current Goal:</h2>
+          {this.props.goal.map((goal) => (
+            <div>
+              <p>{goal.prize_name}</p>
+              <img height='200' src={goal.prize_image} />
+            </div>
+          ))}
+        </div>
         {/* New Potty goal form with file upload */}
         <form>
           <label for='goalMaxValue'>Potty Goal #</label>
@@ -66,6 +81,7 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
   user: state.user,
   child: state.childReducer,
+  goal: state.goalReducer,
 });
 
 export default connect(mapStateToProps)(Goal);

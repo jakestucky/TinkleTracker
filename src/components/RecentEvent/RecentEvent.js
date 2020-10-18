@@ -20,20 +20,22 @@ class RecentEvent extends Component {
             <th>Event Time</th>
             <th>Child Name</th>
           </tr>
-          {this.props.event.map((event) => (
-            <tr>
-              <td>{event.event_type}</td>
-              <td>{event.date.split('T', 1)}</td>
-              <td>{event.time}</td>
-              <td>{event.name}</td>
-              <td>
-                <button>Edit</button>
-              </td>
-              <td>
-                <button>Delete</button>
-              </td>
-            </tr>
-          ))}
+          <tbody>
+            {this.props.event.map((event) => (
+              <tr key={event.id}>
+                <td>{event.event_type}</td>
+                <td>{event.date.split('T', 1)}</td>
+                <td>{event.time}</td>
+                <td>{event.name}</td>
+                <td>
+                  <button>Edit</button>
+                </td>
+                <td>
+                  <button>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     );
