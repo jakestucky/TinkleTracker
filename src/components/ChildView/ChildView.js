@@ -5,7 +5,6 @@ import num1 from './urine1.png';
 import num2 from './Poop_Emoji.png';
 import wet from './sad.png';
 import dry from './smiley.png';
-import Axios from 'axios';
 
 class ChildView extends Component {
   constructor() {

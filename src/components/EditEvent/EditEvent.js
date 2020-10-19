@@ -17,6 +17,9 @@ class EditEvent extends Component {
   };
 
   componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_USER',
+    });
     this.setState({
       time: this.props.edit.time,
       date: this.props.edit.date,

@@ -6,6 +6,12 @@ class RecentEvent extends Component {
     this.props.dispatch({
       type: 'FETCH_EVENT',
     });
+    this.props.dispatch({
+      type: 'FETCH_USER',
+    });
+    this.props.dispatch({
+      type: 'FETCH_CHILD',
+    });
   };
 
   deleteEvent = (id) => {

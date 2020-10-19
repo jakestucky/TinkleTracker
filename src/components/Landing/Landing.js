@@ -6,6 +6,9 @@ class UserPage extends Component {
   //
   componentDidMount = () => {
     this.props.dispatch({
+      type: 'FETCH_USER',
+    });
+    this.props.dispatch({
       type: 'FETCH_CHILD',
     });
   };
@@ -25,7 +28,7 @@ class UserPage extends Component {
           <Link to='/goal'>
             <button className='event-button'>View/Edit Current Goals</button>
           </Link>
-          <Link to='/goal'>
+          <Link to='/childinfo'>
             <button className='event-button'> View/Edit Child Profile</button>
           </Link>
         </div>

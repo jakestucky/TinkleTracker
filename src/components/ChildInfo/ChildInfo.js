@@ -28,7 +28,16 @@ class ChildInfo extends Component {
     console.log('current user props', this.props.user);
     return (
       <div>
-        {/* NEED TO CHANGE THIS */}
+        <div className='childInfo'>
+          <img
+            className='profile-img'
+            height='150PX'
+            src={this.props.child.image}
+          />
+          <p>
+            {this.props.child.name}, Age {this.props.child.age}
+          </p>
+        </div>
 
         <form>
           <h2>Your Child's Info</h2>
@@ -69,6 +78,7 @@ class ChildInfo extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user,
+  child: state.childReducer,
 });
 
 export default connect(mapStateToProps)(ChildInfo);

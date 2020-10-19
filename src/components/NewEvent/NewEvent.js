@@ -20,6 +20,12 @@ class NewEvent extends Component {
     };
   }
   componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_USER',
+    });
+    this.props.dispatch({
+      type: 'FETCH_CHILD',
+    });
     this.setState({
       ...this.state,
       childId: this.props.child.id,

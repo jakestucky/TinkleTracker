@@ -9,6 +9,12 @@ class Goal extends Component {
     hasGoal: '',
   };
   componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_USER',
+    });
+    this.props.dispatch({
+      type: 'FETCH_CHILD',
+    });
     this.setState({
       ...this.state,
       hasGoal: this.props.goal,
