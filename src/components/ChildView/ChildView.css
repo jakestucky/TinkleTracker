@@ -1,7 +1,7 @@
 .buttonGrid {
   display: inline-block;
 }
-.event-button {
+.event-button-child {
   background-color: #4caf50; /* Green */
   border: none;
   color: white;
@@ -10,7 +10,7 @@
   text-decoration: none;
   padding: 20px;
   border-radius: 10px;
-  width: 200px;
+  width: 250px;
   font-size: 36px;
 }
 .childInfo {
