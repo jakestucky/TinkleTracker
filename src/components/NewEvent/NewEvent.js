@@ -35,7 +35,7 @@ class NewEvent extends Component {
   };
 
   submitEvent = () => {
-    console.log('you clicked submit ');
+    console.log('you clicked submit in Newevent');
 
     this.props.dispatch({
       type: 'CREATE_EVENT',

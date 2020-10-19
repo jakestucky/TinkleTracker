@@ -1,4 +1,4 @@
-.buttonGrid {
+buttonGrid {
   display: inline-block;
 }
 .event-button-child {
@@ -28,6 +28,6 @@
   display: grid;
   grid-template-columns: 200px 200px;
   grid-row: auto auto;
-  grid-column-gap: 75px;
+  grid-column-gap: 95px;
   grid-row-gap: 50px;
 }

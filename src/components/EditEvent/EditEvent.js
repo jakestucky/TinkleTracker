@@ -4,6 +4,8 @@ import { DatePicker } from 'react-rainbow-components';
 import './style.css';
 import { TimePicker } from 'react-rainbow-components';
 
+//TODO GET THE DAMN STATE WORKING ON LOAD
+
 class EditEvent extends Component {
   //set local date and time as default values
 
@@ -73,7 +75,7 @@ class EditEvent extends Component {
             <select
               id='Event-type'
               label='Potty Event Type'
-              value={this.props.edit.event_type}
+              value={this.state.event}
               onChange={(event) => this.handleInputChange('eventType', event)}
             >
               <option>Wet/Soiled Diaper</option>
