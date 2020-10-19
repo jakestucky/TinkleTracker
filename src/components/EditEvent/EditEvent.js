@@ -8,13 +8,20 @@ class EditEvent extends Component {
   //set local date and time as default values
 
   state = {
-    currentTime: this.props.edit.time,
+    time: this.props.edit.time,
     date: this.props.edit.date,
     eventType: this.props.edit.event_type,
     childId: this.props.edit.child_ID,
   };
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    this.setState({
+      time: this.props.edit.time,
+      date: this.props.edit.date,
+      eventType: this.props.edit.event_type,
+      childId: this.props.edit.child_ID,
+    });
+  };
 
   handleInputChange = (propertyName, event) => {
     console.log('this is changing', propertyName, this.state.title);
@@ -29,7 +36,7 @@ class EditEvent extends Component {
 
     this.props.dispatch({
       type: 'PUT_EVENT',
-      url: `/event/${this.props.event.id}`,
+      url: `/event/${this.props.edit.id}`,
       payload: {
         date: this.state.date,
         time: this.state.currentTime,
@@ -40,7 +47,7 @@ class EditEvent extends Component {
     this.props.history.push('/home');
   };
   render() {
-    console.log('props test', this.props.edit.date);
+    console.log('props test', this.state);
 
     return (
       <div>
@@ -75,7 +82,11 @@ class EditEvent extends Component {
               <option>#2 in Potty</option>
             </select>
             <br></br>
-            <button className='new-event-button' onClick={this.submitEdit}>
+            <button
+              type='button'
+              className='new-event-button'
+              onClick={this.submitEdit}
+            >
               Submit Edit
             </button>
           </div>

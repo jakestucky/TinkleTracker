@@ -48,12 +48,22 @@ function* editEvent(action) {
     payload: response.data,
   });
 }
+
+function* putEvent(action) {
+  console.log('get (edit) request at', action.url);
+
+  let response = yield axios({
+    method: 'PUT',
+    url: action.url,
+    data: action.payload,
+  });
+}
 function* eventSaga() {
   yield takeLatest('CREATE_EVENT', createEvent);
   yield takeLatest('FETCH_EVENT', fetchEvent);
   yield takeLatest('DELETE_EVENT', deleteEvent);
   yield takeLatest('EDIT_EVENT', editEvent);
-  // yield takeLatest('PUT_EVENT', putEvent);
+  yield takeLatest('PUT_EVENT', putEvent);
 }
 
 export default eventSaga;
