@@ -6,5 +6,13 @@ const goalReducer = (state = [], action) => {
       return state;
   }
 };
+export const goalStatus = (state = {}, action) => {
+  switch (action.type) {
+    case 'GOAL_STATUS':
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 export default goalReducer;

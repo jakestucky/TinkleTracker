@@ -18,8 +18,8 @@ const Nav = (props) => (
     <Link to='/newevent'>
       <h2 className='nav-title'>Potty Event</h2>
     </Link>
-    <Link to='/home'>
-      <h2 className='nav-title'>Profile</h2>
+    <Link to='/recentevent'>
+      <h2 className='nav-title'>Recent Events</h2>
     </Link>
     <Link to='/childview'>
       <h2 className='nav-title'>Child View</h2>

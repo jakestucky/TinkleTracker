@@ -1,0 +1,23 @@
+.events-table {
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+  border: 1px solid black;
+  width: 40%;
+  margin-top: 50px;
+}
+.recent-header {
+  text-align: center;
+  font-size: 48px;
+}
+td {
+  border: 1px solid black;
+  padding: 15px;
+}
+th {
+  padding: 15px;
+}
+.recent-event-button {
+  border: none;
+  border-top: 1px solid black;
+}

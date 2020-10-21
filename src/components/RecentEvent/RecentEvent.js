@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './RecentEvent.css';
 
 class RecentEvent extends Component {
   componentDidMount = () => {
@@ -37,13 +38,15 @@ class RecentEvent extends Component {
 
     return (
       <div>
-        Recent Event
-        <table>
+        <h2 className='recent-header'> Recent Potty Events</h2>
+        <table className='events-table'>
           <tr>
             <th>Event Type</th>
             <th>Event Date</th>
             <th>Event Time</th>
             <th>Child Name</th>
+            <th className='end-header'></th>
+            <th></th>
           </tr>
           <tbody>
             {this.props.event.map((event) => (
@@ -52,10 +55,10 @@ class RecentEvent extends Component {
                 <td>{event.date.split('T', 1)}</td>
                 <td>{event.time}</td>
                 <td>{event.name}</td>
-                <td>
+                <td className='recent-event-button'>
                   <button onClick={() => this.editEvent(event.id)}>Edit</button>
                 </td>
-                <td>
+                <td className='recent-event-button'>
                   <button onClick={() => this.deleteEvent(event.id)}>
                     Delete
                   </button>

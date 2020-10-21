@@ -4,7 +4,7 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import childReducer from './childReducer';
 import eventReducer from './eventReducer';
-import goalReducer from './goalReducer';
+import goalReducer, { goalStatus } from './goalReducer';
 import editReducer from './editReducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -20,6 +20,7 @@ const rootReducer = combineReducers({
   eventReducer, //Reducer to store the recent event data from DB
   goalReducer, //reducer to grab and store newest goal's data
   editReducer, //reducer for individual item to edit
+  goalStatus,
 });
 
 export default rootReducer;

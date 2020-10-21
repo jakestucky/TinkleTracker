@@ -24,11 +24,11 @@ class Goal extends Component {
       //get request with the child ID as a param
       url: `/goal/${this.props.child.id}`,
     });
-    // this.props.dispatch({
-    //   type: 'FETCH_GOAL',
-    //   //get request with the child ID as a param
-    //   url: `/goal/count/${this.props.child.id}`,
-    // });
+    this.props.dispatch({
+      type: 'FETCH_GOAL_STATUS',
+      //get request with the child ID as a param
+      url: `/goal/count/${this.props.child.id}`,
+    });
   };
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -39,7 +39,7 @@ class Goal extends Component {
     });
   };
   render() {
-    console.log('state is', this.state);
+    console.log('goal status is', this.props.status.count);
 
     return (
       <div>
@@ -50,7 +50,7 @@ class Goal extends Component {
               <p>{goal.prize_name}</p>
               <img height='200' src={goal.prize_image} />
               <p>
-                Goal Progress {goal.current_goal} / {goal.max_goal}
+                Goal Progress {this.props.status.count} / {goal.max_goal}
               </p>
             </div>
           ))}
@@ -95,6 +95,7 @@ const mapStateToProps = (state) => ({
   user: state.user,
   child: state.childReducer,
   goal: state.goalReducer,
+  status: state.goalStatus,
 });
 
 export default connect(mapStateToProps)(Goal);
