@@ -20,4 +20,21 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// router.get('/count/:id', (req, res) => {
+//   console.log('making a goal count GET request', req.params.id);
+
+//   let queryString = `SELECT COUNT(*) FROM "event_data" WHERE "child_ID" = $1 AND "date" <= $2 AND "time" > $3;`;
+//   pool
+//     .query(queryString, [req.params.id, req.body.date, req.body.time])
+//     .then((result) => {
+//       console.log('results from goal counter get', result.rows[0]);
+
+//       res.send(result.rows[0]);
+//     })
+//     .catch((error) => {
+//       console.log('We have an error in events GET', error);
+//       res.sendStatus(500);
+//     });
+// });
+
 module.exports = router;

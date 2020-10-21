@@ -3,57 +3,52 @@ import { connect } from 'react-redux';
 import { DatePicker } from 'react-rainbow-components';
 import './style.css';
 import { TimePicker } from 'react-rainbow-components';
-
-//TODO GET THE DAMN STATE WORKING ON LOAD
+import { DateTimePicker } from 'react-rainbow-components';
 
 class EditEvent extends Component {
-  //set local date and time as default values
-
-  state = {
-    time: this.props.edit.time,
-    date: this.props.edit.date,
-    eventType: this.props.edit.event_type,
-    childId: this.props.edit.child_ID,
-  };
-
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_USER',
     });
-    this.setState({
-      time: this.props.edit.time,
-      date: this.props.edit.date,
-      eventType: this.props.edit.event_type,
-      childId: this.props.edit.child_ID,
-    });
   };
 
   handleInputChange = (propertyName, event) => {
-    console.log('this is changing', propertyName, this.state.title);
-    this.setState({
-      ...this.state,
-      [propertyName]: event.target.value,
+    console.log('this is changing', propertyName);
+    this.props.dispatch({
+      type: 'UPDATE_EDIT_EVENT',
+      payload: {
+        [propertyName]: event.target.value,
+      },
+    });
+  };
+  //needed a new onchange to handle input variation
+  //from date and time picker components
+  handleInputChangeDate = (propertyName, event) => {
+    console.log('date is changing');
+    this.props.dispatch({
+      type: 'UPDATE_EDIT_EVENT',
+      payload: {
+        [propertyName]: event,
+      },
     });
   };
 
   submitEdit = () => {
     console.log('you clicked submit ');
-
+    //Pulls the data from the edit state redux and send to
     this.props.dispatch({
       type: 'PUT_EVENT',
       url: `/event/${this.props.edit.id}`,
       payload: {
-        date: this.state.date,
-        time: this.state.currentTime,
-        eventType: this.state.eventType,
-        childId: this.state.childId,
+        date: this.props.edit.date,
+        time: this.props.edit.time,
+        eventType: this.props.edit.event_type,
+        childId: this.props.edit.child_ID,
       },
     });
     this.props.history.push('/home');
   };
   render() {
-    console.log('props test', this.state);
-
     return (
       <div>
         <form>
@@ -61,7 +56,7 @@ class EditEvent extends Component {
             <DatePicker
               value={this.props.edit.date}
               label='Potty Event Date'
-              onChange={(value) => this.setState({ date: value })}
+              onChange={(value) => this.handleInputChangeDate('date', value)}
               //cannot pick a date in the future
               maxDate={new Date()}
             />
@@ -71,15 +66,15 @@ class EditEvent extends Component {
               id='time-picker-1'
               value={this.props.edit.time}
               label='Potty Event Time'
-              onChange={(value) => this.setState({ time: value })}
+              onChange={(value) => this.handleInputChangeDate('time', value)}
             />
           </div>
           <div>
             <select
               id='Event-type'
               label='Potty Event Type'
-              value={this.state.event}
-              onChange={(event) => this.handleInputChange('eventType', event)}
+              value={this.props.edit.event_type}
+              onChange={(event) => this.handleInputChange('event_type', event)}
             >
               <option>Wet/Soiled Diaper</option>
               <option>Dry Overnight/Nap Diaper</option>

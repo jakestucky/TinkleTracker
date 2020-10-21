@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
    JOIN "event_data" on "event_data"."user_ID" = "child_data"."user_ID"
 
     WHERE "event_data"."user_ID"  = $1
-    ORDER BY "date","time" DESC
+    ORDER BY "id" DESC
     LIMIT 10;
    `;
   pool
@@ -80,7 +80,7 @@ WHERE "id" = $4;
     .query(queryString, [
       req.body.eventType,
       req.body.date,
-      req.aborted.time,
+      req.body.time,
       req.params.id,
     ])
     .then((result) => {

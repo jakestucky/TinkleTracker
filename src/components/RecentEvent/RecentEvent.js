@@ -30,7 +30,7 @@ class RecentEvent extends Component {
       type: 'EDIT_EVENT',
       url: `/event/${id}`,
     });
-    this.props.history.push('/editevent');
+    this.props.history.push(`/event/edit/${id}`);
   };
   render() {
     console.log('current props', this.props.event);

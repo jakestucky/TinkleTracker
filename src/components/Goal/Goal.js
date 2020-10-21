@@ -24,6 +24,11 @@ class Goal extends Component {
       //get request with the child ID as a param
       url: `/goal/${this.props.child.id}`,
     });
+    // this.props.dispatch({
+    //   type: 'FETCH_GOAL',
+    //   //get request with the child ID as a param
+    //   url: `/goal/count/${this.props.child.id}`,
+    // });
   };
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -44,6 +49,9 @@ class Goal extends Component {
             <div>
               <p>{goal.prize_name}</p>
               <img height='200' src={goal.prize_image} />
+              <p>
+                Goal Progress {goal.current_goal} / {goal.max_goal}
+              </p>
             </div>
           ))}
         </div>

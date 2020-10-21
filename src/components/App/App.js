@@ -52,7 +52,11 @@ class App extends Component {
             <ProtectedRoute exact path='/childview' component={ChildView} />
             <ProtectedRoute exact path='/recentevent' component={RecentEvent} />
             <ProtectedRoute exact path='/goal' component={Goal} />
-            <ProtectedRoute exact path='/editevent' component={EditEvent} />
+            <ProtectedRoute
+              exact
+              path='/event/edit/:id'
+              component={EditEvent}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
