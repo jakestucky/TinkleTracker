@@ -6,7 +6,6 @@ import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { makeStyles } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -102,11 +101,8 @@ class RecentEvent extends Component {
                     </ButtonGroup>
                   </div>
                 </Paper>
-                {/* </tr> */}
               </Grid>
             ))}
-            {/* </tbody>
-            </table> */}
           </Grid>
         </div>
       </Container>
