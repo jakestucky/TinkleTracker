@@ -14,11 +14,19 @@ class HeaderLogin extends Component {
         <div className='head'>
           <img height='150px' src={star} />
           <h1>TinkleTracker</h1>
-          <div className='childInfo'>
-            <span>
-              {this.props.child.name}, Age {this.props.child.age}
-            </span>
-          </div>
+
+          <p
+            style={{
+              width: '250px',
+              height: '75px',
+              marginTop: '120px',
+              marginLeft: '300px',
+              fontSize: 24,
+            }}
+          >
+            {this.props.child.name}, Age {this.props.child.age}
+          </p>
+
           <div>
             <img
               className='profile-img'

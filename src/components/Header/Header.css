@@ -1,22 +1,16 @@
 .head {
   display: inline-flex;
   align-content: center;
-  margin-left: 50%;
-  margin-right: auto;
+  margin-left: 30%;
+
+  width: 100%;
+  height: 100px;
 }
 header {
   display: inline-flex;
-}
-.head.img {
-  float: left;
 }
 h1 {
   float: right;
 
   font-size: 58px;
-}
-.profile-img {
-}
-.childInfo {
-  display: inline;
 }

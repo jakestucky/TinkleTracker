@@ -18,10 +18,6 @@ const styles = {
     marginTop: 50,
     textAlign: 'center',
     background: '#4caf50',
-    // '& a': {
-    //   display: 'inline-block',
-    //   color: 'green',
-    // },
     '&:hover': {
       backgroundColor: '#4caf4f60',
     },
