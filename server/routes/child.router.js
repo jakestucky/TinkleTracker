@@ -2,8 +2,11 @@ const Router = require('express').Router;
 const router = Router();
 const upload = require('../middleware/upload');
 const pool = require('../modules/pool');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('user', req.user.id);
 
   const queryText = `SELECT * FROM "child_data" WHERE "user_ID" = $1;

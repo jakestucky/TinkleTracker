@@ -2,8 +2,11 @@ const Router = require('express').Router;
 const router = Router();
 const upload = require('../middleware/upload');
 const pool = require('../modules/pool');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   //post to send created evnt data to the database
   console.log('req.body for event POST', req.body);
   //query to db
@@ -25,7 +28,7 @@ router.post('/', (req, res) => {
   res.sendStatus(201);
 });
 //Get request to DB to grab all events that match userID
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('making a event GET request');
 
   let queryString = ` SELECT "name","image","child_data"."user_ID", "event_type", "date", "time", "event_data"."id" FROM "child_data"
@@ -48,7 +51,7 @@ router.get('/', (req, res) => {
     });
 });
 //Get request by specific ID to be edited later
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   console.log('making a event GET request');
 
   let queryString = ` SELECT * FROM "event_data"
@@ -67,7 +70,7 @@ router.get('/:id', (req, res) => {
     });
 });
 //put request for event edit
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
   console.log('making a event PUT request', req.body);
 
   let queryString = ` UPDATE "event_data"
@@ -95,7 +98,7 @@ WHERE "id" = $4;
 });
 
 //delete by ID from DB request
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   console.log('making a event DELETE request');
   console.log('params are', req.params);
 

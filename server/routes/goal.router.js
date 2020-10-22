@@ -1,8 +1,11 @@
 const Router = require('express').Router;
 const router = Router();
 const pool = require('../modules/pool');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   console.log('making a goal GET request', req.params.id);
 
   let queryString = `SELECT * FROM "goal_data" WHERE "child_ID" = $1 ORDER BY "timestamp" DESC FETCH FIRST ROW ONLY;
@@ -20,7 +23,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.get('/count/:id', (req, res) => {
+router.get('/count/:id', rejectUnauthenticated, (req, res) => {
   console.log('making a goal count GET request', req.params.id);
   //Nested query allows us to select the most recent goal, then make a query with
   //it's timestamp for all events that happened after it's creation date!

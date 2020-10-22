@@ -8,12 +8,15 @@ const Router = require('express').Router;
 const router = Router();
 const upload = require('../middleware/upload');
 const pool = require('../modules/pool');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 // Keep images in an array
 // (could be a DB, IRL)
 // const imagesDB = [];
 
-router.post('/', upload.any(), (req, res) => {
+router.post('/', rejectUnauthenticated, upload.any(), (req, res) => {
   console.log('req.files', req.files);
 
   // We can receive other data from the client, too
