@@ -1,6 +1,11 @@
 .head {
-  display: inline-block;
+  display: inline-flex;
   align-content: center;
+  margin-left: 50%;
+  margin-right: auto;
+}
+header {
+  display: inline-flex;
 }
 .head.img {
   float: left;
@@ -11,5 +16,7 @@ h1 {
   font-size: 58px;
 }
 .profile-img {
-  float: right;
+}
+.childInfo {
+  display: inline;
 }

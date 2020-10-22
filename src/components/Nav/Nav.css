@@ -9,6 +9,7 @@
 .nav {
   overflow: hidden;
   background-color: #4caf50;
+  text-align: center;
 }
 
 .nav-link {
