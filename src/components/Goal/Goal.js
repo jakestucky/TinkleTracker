@@ -39,8 +39,6 @@ class Goal extends Component {
     });
   };
   render() {
-    console.log('goal status is', this.props.status.count);
-
     return (
       <div>
         <div>
@@ -52,6 +50,10 @@ class Goal extends Component {
               <p>
                 Goal Progress {this.props.status.count} / {goal.max_goal}
               </p>
+
+              <progress max={goal.max_goal} value={this.props.status.count}>
+                {this.props.status.count} / {goal.max_goal}
+              </progress>
             </div>
           ))}
         </div>

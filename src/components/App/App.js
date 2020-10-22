@@ -57,6 +57,7 @@ class App extends Component {
                 component={RecentEvent}
               />
               <ProtectedRoute exact path='/goal' component={Goal} />
+
               <ProtectedRoute
                 exact
                 path='/event/edit/:id'
