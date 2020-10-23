@@ -85,7 +85,7 @@ class NewEvent extends Component {
               onChange={(event) => this.handleInputChange('eventType', event)}
             >
               <option>Wet/Soiled Diaper</option>
-              <option>Dry Overnight/Nap Diaper</option>
+              <option>Dry Night/Nap Diaper</option>
               <option>#1 in Potty</option>
               <option>#2 in Potty</option>
             </select>
