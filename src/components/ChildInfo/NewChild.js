@@ -46,7 +46,6 @@ class NewChild extends Component {
   };
 
   render() {
-    const classes = this.props.classes;
     return (
       <Container maxWidth='lg'>
         <form style={{ textAlign: 'center', display: 'block' }}>

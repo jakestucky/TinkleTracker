@@ -26,7 +26,7 @@ function* fetchEvent() {
 function* deleteEvent(action) {
   console.log('delete request at', action.url);
 
-  let response = yield axios({
+  yield axios({
     method: 'DELETE',
     url: action.url,
   });
@@ -52,7 +52,7 @@ function* editEvent(action) {
 function* putEvent(action) {
   console.log('get (edit) request at', action.url);
 
-  let response = yield axios({
+  yield axios({
     method: 'PUT',
     url: action.url,
     data: action.payload,

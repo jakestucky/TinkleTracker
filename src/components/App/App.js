@@ -10,7 +10,6 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import InfoPage from '../InfoPage/InfoPage';
-import Header from '../Header/HeaderLogout';
 import Landing from '../Landing/Landing';
 import './App.css';
 import ChildInfo from '../ChildInfo/ChildInfo';

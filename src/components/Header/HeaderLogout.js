@@ -11,8 +11,8 @@ class HeaderLogout extends Component {
   render() {
     return (
       <header>
-        <div style={{ marginLeft: '50%' }} className='head'>
-          <img height='150px' src={star} />
+        <div style={{ marginLeft: '90%' }} className='head'>
+          <img height='150px' alt='star logo' src={star} />
           <h1>TinkleTracker</h1>
         </div>
       </header>

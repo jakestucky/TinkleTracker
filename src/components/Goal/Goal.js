@@ -63,8 +63,6 @@ class Goal extends Component {
     });
   };
   render() {
-    const classes = this.props.classes;
-
     return (
       <Container maxWidth='lg'>
         <div style={{ textAlign: 'center', display: 'block' }}>
@@ -77,7 +75,7 @@ class Goal extends Component {
               <p>
                 Goal Progress {this.props.status.count} / {goal.max_goal}
               </p>
-              <img height='200' src={goal.prize_image} />
+              <img height='200' alt='current goal' src={goal.prize_image} />
             </div>
           ))}
         </div>

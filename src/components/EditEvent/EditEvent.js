@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { DatePicker } from 'react-rainbow-components';
 import './style.css';
 import { TimePicker } from 'react-rainbow-components';
-import { DateTimePicker } from 'react-rainbow-components';
 
 class EditEvent extends Component {
   componentDidMount = () => {

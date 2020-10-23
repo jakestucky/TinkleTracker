@@ -9,7 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -72,7 +71,7 @@ class ChildView extends Component {
                   onClick={() => this.submitEvent('#1 in Potty')}
                   className='event-button-child'
                 >
-                  <img height='200' src={num1} />
+                  <img height='200' alt='#1 in Potty' src={num1} />
                 </Button>
               </Paper>
             </Grid>
@@ -83,7 +82,7 @@ class ChildView extends Component {
                   onClick={() => this.submitEvent('#2 in Potty')}
                   className='event-button-child'
                 >
-                  <img height='200' src={num2} />
+                  <img height='200' alt='#2 in Potty' src={num2} />
                 </Button>
               </Paper>
             </Grid>
@@ -94,18 +93,18 @@ class ChildView extends Component {
                   onClick={() => this.submitEvent('Wet/Soiled Diaper')}
                   className='event-button-child'
                 >
-                  <img height='200' src={wet} />
+                  <img height='200' alt='Wet/Soiled Diaper' src={wet} />
                 </Button>
               </Paper>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Paper className={classes.paper}>
                 <Button
-                  id='Dry Overnight/Nap Diaper'
-                  onClick={() => this.submitEvent('Dry Overnight/Nap Diaper')}
+                  id='Dry Night/Nap Diaper'
+                  onClick={() => this.submitEvent('Dry Night/Nap Diaper')}
                   className='event-button-child'
                 >
-                  <img height='200' src={dry} />
+                  <img height='200' alt='Dry Night/Nap Diaper' src={dry} />
                 </Button>
               </Paper>
             </Grid>

@@ -12,7 +12,7 @@ class HeaderLogin extends Component {
     return (
       <header>
         <div className='head'>
-          <img height='150px' src={star} />
+          <img height='150px' alt='star logo' src={star} />
           <h1>TinkleTracker</h1>
 
           <p
@@ -20,7 +20,7 @@ class HeaderLogin extends Component {
               width: '250px',
               height: '75px',
               marginTop: '120px',
-              marginLeft: '300px',
+              marginLeft: '200px',
               fontSize: 24,
             }}
           >
@@ -31,6 +31,7 @@ class HeaderLogin extends Component {
             <img
               className='profile-img'
               height='150PX'
+              alt='current child'
               src={this.props.child.image}
             />
           </div>

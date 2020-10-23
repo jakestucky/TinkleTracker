@@ -46,13 +46,13 @@ class ChildInfo extends Component {
   };
 
   render() {
-    const classes = this.props.classes;
     return (
       <Container maxWidth='lg'>
         <div style={{ textAlign: 'center', display: 'block' }}>
           <img
             style={{ marginTop: '25px' }}
             height='250PX'
+            alt='users child'
             src={this.props.child.image}
           />
           <h3>
