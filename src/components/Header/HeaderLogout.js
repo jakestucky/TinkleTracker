@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-class Header extends Component {
+class HeaderLogout extends Component {
   render() {
     return (
       <header>
@@ -25,4 +25,4 @@ const mapStateToProps = (state) => ({
   login: state.loginMode,
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(HeaderLogout);
