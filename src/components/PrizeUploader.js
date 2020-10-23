@@ -24,13 +24,8 @@ function PrizeUploader(props) {
 
   return (
     <>
-      <h2>Upload Prize Picture!</h2>
+      <h3>Upload Prize Picture!</h3>
       <Dropzone getUploadParams={getUploadParams} onSubmit={handleSubmit} />
-
-      {/* <h2>Gallery</h2>
-      {images.map((image) => (
-        <img src={image} height='100px' />
-      ))} */}
     </>
   );
 }

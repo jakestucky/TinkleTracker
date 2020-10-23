@@ -20,7 +20,7 @@ class RegisterPage extends Component {
           email: this.state.email,
         },
       });
-      this.props.history.push('/childinfo');
+      this.props.history.push('/newchild');
     } else {
       this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }

@@ -2,6 +2,30 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PrizeUploader from '../PrizeUploader';
 import './Goal.css';
+import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = {
+  paper: {
+    padding: 10,
+    textAlign: 'center',
+    background: '#4caf4f60',
+    '& a': {
+      display: 'inline-block',
+      color: 'green',
+    },
+  },
+  root: {
+    flexGrow: 1,
+  },
+  button: {
+    backgroundColor: 'white',
+    '&:hover': {
+      backgroundColor: '#4caf50',
+    },
+  },
+};
+
 class Goal extends Component {
   state = {
     prizeName: '',
@@ -39,26 +63,27 @@ class Goal extends Component {
     });
   };
   render() {
+    const classes = this.props.classes;
+
     return (
-      <div>
-        <div>
-          <h2>Current Goal:</h2>
+      <Container maxWidth='lg'>
+        <div style={{ textAlign: 'center', display: 'block' }}>
           {this.props.goal.map((goal) => (
             <div>
-              <p>{goal.prize_name}</p>
-              <img height='200' src={goal.prize_image} />
-              <p>
-                Goal Progress {this.props.status.count} / {goal.max_goal}
-              </p>
-
+              <h2>Current Goal: {goal.prize_name}</h2>
               <progress max={goal.max_goal} value={this.props.status.count}>
                 {this.props.status.count} / {goal.max_goal}
               </progress>
+              <p>
+                Goal Progress {this.props.status.count} / {goal.max_goal}
+              </p>
+              <img height='200' src={goal.prize_image} />
             </div>
           ))}
         </div>
-        {/* New Potty goal form with file upload */}
-        <form>
+
+        <form style={{ textAlign: 'center', display: 'block' }}>
+          <h2>Create New Goal!</h2>
           <label for='goalMaxValue'>Potty Goal #</label>
           <input
             id='goalMaxValue'
@@ -87,7 +112,7 @@ class Goal extends Component {
             prizeProps={this.state}
           />
         </form>
-      </div>
+      </Container>
     );
   }
 }
@@ -100,4 +125,4 @@ const mapStateToProps = (state) => ({
   status: state.goalStatus,
 });
 
-export default connect(mapStateToProps)(Goal);
+export default connect(mapStateToProps)(withStyles(styles)(Goal));

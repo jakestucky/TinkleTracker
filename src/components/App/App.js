@@ -20,6 +20,7 @@ import RecentEvent from '../RecentEvent/RecentEvent';
 import Goal from '../Goal/Goal';
 import EditEvent from '../EditEvent/EditEvent';
 import HeaderLogin from '../Header/HeaderLogin';
+import NewChild from '../ChildInfo/NewChild';
 
 class App extends Component {
   componentDidMount() {
@@ -30,7 +31,7 @@ class App extends Component {
 
   render() {
     console.log('props are', this.props.child.name);
-    if (this.props.user.id === undefined) {
+    if (this.props.child.name === undefined) {
       return (
         <Router>
           <div>
@@ -56,6 +57,7 @@ class App extends Component {
                 path='/recentevent'
                 component={RecentEvent}
               />
+              <ProtectedRoute exact path='/newchild' component={NewChild} />
               <ProtectedRoute exact path='/goal' component={Goal} />
 
               <ProtectedRoute

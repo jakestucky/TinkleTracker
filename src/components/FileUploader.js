@@ -24,7 +24,7 @@ function FileUploader(props) {
 
   return (
     <>
-      <h2>Upload to Profile Picture!</h2>
+      <h3>Upload to Profile Picture!</h3>
       <Dropzone getUploadParams={getUploadParams} onSubmit={handleSubmit} />
     </>
   );

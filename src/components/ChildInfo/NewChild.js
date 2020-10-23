@@ -24,7 +24,7 @@ const styles = {
   },
 };
 
-class ChildInfo extends Component {
+class NewChild extends Component {
   state = {
     ChildName: '',
     Age: '',
@@ -49,17 +49,6 @@ class ChildInfo extends Component {
     const classes = this.props.classes;
     return (
       <Container maxWidth='lg'>
-        <div style={{ textAlign: 'center', display: 'block' }}>
-          <img
-            style={{ marginTop: '25px' }}
-            height='250PX'
-            src={this.props.child.image}
-          />
-          <h3>
-            {this.props.child.name}, Age {this.props.child.age}
-          </h3>
-        </div>
-
         <form style={{ textAlign: 'center', display: 'block' }}>
           <h2>Add or Update Child's Info</h2>
           <br />
@@ -102,4 +91,4 @@ const mapStateToProps = (state) => ({
   child: state.childReducer,
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(ChildInfo));
+export default connect(mapStateToProps)(withStyles(styles)(NewChild));
