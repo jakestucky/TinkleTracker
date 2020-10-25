@@ -43,12 +43,12 @@ router.get('/count/:id', rejectUnauthenticated, (req, res) => {
           res.send(result.rows[0]);
         })
         .catch((error) => {
-          console.log('We have an error in Goals GET', error);
+          console.log('We have an error in Goals GET 2nd query', error);
           res.sendStatus(500);
         });
     })
     .catch((error) => {
-      console.log('We have an error in Goals GET', error);
+      console.log('We have an error in Goals GET 1st query', error);
       res.sendStatus(500);
     });
 });

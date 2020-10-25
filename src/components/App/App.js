@@ -21,6 +21,7 @@ import EditEvent from '../EditEvent/EditEvent';
 import NewChild from '../ChildInfo/NewChild';
 import HeaderLogin from '../Header/HeaderLogin';
 import HeaderLogout from '../Header/HeaderLogout';
+import NewGoal from '../Goal/NewGoal';
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({
@@ -53,7 +54,7 @@ class App extends Component {
             <ProtectedRoute exact path='/recentevent' component={RecentEvent} />
             <ProtectedRoute exact path='/newchild' component={NewChild} />
             <ProtectedRoute exact path='/goal' component={Goal} />
-
+            <ProtectedRoute exact path='/newgoal' component={NewGoal} />
             <ProtectedRoute
               exact
               path='/event/edit/:id'

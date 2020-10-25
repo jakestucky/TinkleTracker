@@ -33,10 +33,17 @@ class NewEvent extends Component {
   };
 
   handleInputChange = (propertyName, event) => {
-    console.log('this is changing', propertyName, this.state.title);
+    console.log('this is changing', propertyName, event.target.value);
     this.setState({
       ...this.state,
       [propertyName]: event.target.value,
+    });
+  };
+  handleInputChangeDate = (propertyName, event) => {
+    console.log('this is changing', propertyName, event);
+    this.setState({
+      ...this.state,
+      [propertyName]: event,
     });
   };
 
@@ -55,8 +62,6 @@ class NewEvent extends Component {
     this.props.history.push('/home');
   };
   render() {
-    console.log('state is', this.state);
-
     return (
       <div>
         <form>
@@ -64,7 +69,7 @@ class NewEvent extends Component {
             <DatePicker
               value={this.state.date}
               label='Potty Event Date'
-              onChange={(value) => this.setState({ date: value })}
+              onChange={(value) => this.handleInputChangeDate('date', value)}
               //cannot pick a date in the future
               maxDate={new Date()}
             />
@@ -74,7 +79,7 @@ class NewEvent extends Component {
               id='time-picker-1'
               value={this.state.currentTime}
               label='Potty Event Time'
-              onChange={(value) => this.setState({ time: value })}
+              onChange={(value) => this.handleInputChangeDate('time', value)}
             />
           </div>
           <div>

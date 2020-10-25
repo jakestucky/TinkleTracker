@@ -26,7 +26,7 @@ const styles = {
   },
 };
 
-class Goal extends Component {
+class NewGoal extends Component {
   state = {
     prizeName: '',
     goalMaxValue: '',
@@ -43,17 +43,6 @@ class Goal extends Component {
       ...this.state,
       hasGoal: this.props.goal,
     });
-    this.props.dispatch({
-      type: 'FETCH_GOAL',
-      //get request with the child ID as a param
-      url: `/goal/${this.props.child.id}`,
-    });
-
-    this.props.dispatch({
-      type: 'FETCH_GOAL_STATUS',
-      //get request with the child ID as a param
-      url: `/goal/count/${this.props.child.id}`,
-    });
   };
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -66,21 +55,6 @@ class Goal extends Component {
   render() {
     return (
       <Container maxWidth='lg'>
-        <div style={{ textAlign: 'center', display: 'block' }}>
-          {this.props.goal.map((goal) => (
-            <div>
-              <h2>Current Goal: {goal.prize_name}</h2>
-              <progress max={goal.max_goal} value={this.props.status.count}>
-                {this.props.status.count} / {goal.max_goal}
-              </progress>
-              <p>
-                Goal Progress {this.props.status.count} / {goal.max_goal}
-              </p>
-              <img height='200' alt='current goal' src={goal.prize_image} />
-            </div>
-          ))}
-        </div>
-
         <form style={{ textAlign: 'center', display: 'block' }}>
           <h2>Create New Goal!</h2>
           <label for='goalMaxValue'>Potty Goal #</label>
@@ -124,4 +98,4 @@ const mapStateToProps = (state) => ({
   status: state.goalStatus,
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(Goal));
+export default connect(mapStateToProps)(withStyles(styles)(NewGoal));

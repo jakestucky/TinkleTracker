@@ -19,7 +19,7 @@ function FileUploader(props) {
   const handleSubmit = (files, allFiles) => {
     // Remove files from form
     allFiles.forEach((f) => f.remove());
-    window.location.href = 'http://localhost:3000/home#/goal';
+    window.location.href = 'http://localhost:3000/home#/newgoal';
   };
 
   return (
