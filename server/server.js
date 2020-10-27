@@ -44,3 +44,4 @@ app.listen(PORT, () => {
 });
 
 /// everything her below is for the pic upload TODO refactor and make this look good
+module.exports = app;
