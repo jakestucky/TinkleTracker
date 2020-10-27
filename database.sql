@@ -19,8 +19,10 @@ CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
     "event_type" VARCHAR (80) NOT NULL,
     "child_ID" INT,
+    "user_ID" INT,
     "date" DATE NOT NULL,
-    "time" TIME(0) NOT NULL
+    "time" TIME(0) NOT NULL,
+    "timestamp" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
     
   CREATE TABLE "goal_data" (
@@ -48,10 +50,11 @@ CREATE TABLE "user" (
  INSERT INTO "event_data" (
     "event_type",
     "child_ID",
+     "user_ID",
     "date",
     "time"
     )
-    VALUES ('dry diaper','1', '2020-10-13', '11:23:00');
+    VALUES ('dry diaper','1','3', '2020-10-13', '11:23:00');
     
     INSERT INTO "goal_data" (
     "prize_name",
@@ -80,4 +83,36 @@ CREATE TABLE "user" (
     )
     VALUES ('dry diaper','1', now(), now());
     
+    
+    SELECT * FROM "child_data" 
+    WHERE "user_ID" = '3';
+    
+  SELECT "name","image","child_data"."user_ID", "event_type", "date", "time", "event_data"."id" FROM "child_data"
+   JOIN "event_data" on "event_data"."user_ID" = "child_data"."user_ID"
+
+    WHERE "event_data"."user_ID"  = '3'
+    ORDER BY "date","time" DESC
+    LIMIT 10;
+    
+    SELECT * FROM "goal_data" WHERE "child_ID" = '24' ORDER BY "timestamp" DESC FETCH FIRST ROW ONLY;
+    
+    DELETE FROM "event_data" WHERE "id" = '13';
+    
+    UPDATE "event_data"
+  SET "event_type" = 'Dry Overnight/Nap Diaper',
+  "date" = '2020-10-18',
+  "time" = '10:08:44'
+WHERE "id" = '15';
+
+SELECT * FROM "goal_data" WHERE "child_ID" = '34' ORDER BY "timestamp" DESC FETCH FIRST ROW ONLY;
    
+SELECT
+	COUNT (*)
+FROM
+	"event_data"
+FULL OUTER JOIN bar USING (id, name)
+WHERE
+	foo.id IS NULL
+OR bar.id IS NULL;
+
+SELECT * FROM "goal_data" WHERE "child_ID" = '34'
